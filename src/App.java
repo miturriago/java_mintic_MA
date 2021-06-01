@@ -34,28 +34,46 @@ public class App {
                     System.out.println("---------------------------");
                     break;
                 case 2:
-                    int valor = 0;
                     System.out.println("Opción 2");
                     System.out.println("---------------------------");
-                    int numero = (int) (Math.random() * 100);
-                    System.out.println("Indica un numero entre el 0 y el 100 " + numero);
+                    int numero = 0, tempNum = 0;
+                    boolean sw = true;
+                    int correcto = 1, mayor = 1;
+                    System.out.println("Indica un numero entre el 0 y el 99 ");
                     int contador = 0;
-                    do {
-                        System.out.print("Indica el numero: ");
-                        valor = leer.nextInt();
-                        if (valor < 0 || valor > 100) {
-                            System.out.println("El numero tiene que estar entre el 0 y el 100");
+                    while (contador < 10 && sw == true) {
+                        if (contador == 0) {
+                            numero = (int) (Math.random() * 100);
                         }
-                        if (valor > numero) {
-                            System.out.println("El numero es menor");
-                        } else if (valor < numero) {
-                            System.out.println("El numero es mayor");
+                        System.out.println("¿El número que pensó fue " + numero + "? (1) SI. (2)NO.");
+                        correcto = leer.nextInt();
+                        if (correcto == 1) {
+                            sw = false;
+                        } else {
+                            System.out.println("¿El número que pensó es (1)MAYOR o (2)MENOR que " + numero + "? ");
+                            mayor = leer.nextInt();
+                            tempNum = numero;
+                            if (mayor == 1) {
+                                numero = (int) (Math.random() * 99) + tempNum;
+                            } else {
+                                numero = (int) (Math.random() * tempNum);
+                            }
+
                         }
                         contador++;
-                    } while (valor != numero);
-
+                    }
+                    contador = contador + 1;
                     System.out.println("---------------------------");
-                    System.out.println("Has avariguado el numero en " + contador + " intentos.");
+                    System.out.println("Cantidad de intentos " + contador);
+                    if (contador <= 3) {
+                        System.out.println("Eres un GENIO");
+                    } else if (contador <= 6) {
+                        System.out.println("LO HICISTE BIEN");
+                    }else if(contador <=10){
+                        System.out.println("LO HICISTE BIEN");
+                    }else{
+                        System.out.println("Partida perdida");
+                    }
                     System.out.println("---------------------------");
                     break;
                 case 3:
