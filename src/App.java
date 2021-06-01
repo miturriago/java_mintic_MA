@@ -50,7 +50,7 @@ public class App {
                         if (correcto == 1) {
                             sw = false;
                         } else {
-                            System.out.println("¿El número que pensó es (1)MAYOR o (2)MENOR que " + numero + "? ");
+                            System.out.println("¿El número que pensó es (1) MAYOR o (2) MENOR que " + numero + "? ");
                             mayor = leer.nextInt();
                             tempNum = numero;
                             if (mayor == 1) {
